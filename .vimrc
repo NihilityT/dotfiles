@@ -347,7 +347,28 @@ set completeopt=menuone,menu
 
 " airline {{{
 let g:airline#extensions#tabline#enabled=1
-let g:airline_powerline_fonts = getfontname() =~ 'powerline'
+
+augroup PowerlineFonts
+	au!
+	autocmd VimEnter *
+	\ if !get(g:, 'airline_powerline_fonts', 0) && getfontname() =~? 'powerline'
+	\|	let g:airline_powerline_fonts = getfontname() =~? 'powerline'
+	\|	let g:airline_left_sep      = "\ue0b0"
+	\|	let g:airline_left_alt_sep  = "\ue0b1"
+	\|	let g:airline_right_sep     = "\ue0b2"
+	\|	let g:airline_right_alt_sep = "\ue0b3"
+	\|	call extend(g:airline_symbols, {
+	\	  'readonly': "\ue0a2",
+	\	  'whitespace': "\u2632",
+	\	  'linenr': "\u2630 ",
+	\	  'maxlinenr': " \ue0a1",
+	\	  'branch': "\ue0a0",
+	\	  'notexists': "\u0246",
+	\	  'crypt': nr2char(0x1F512),
+	\	})
+	\|endif
+augroup END
+
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 nmap <leader>1 <Plug>AirlineSelectTab1
 nmap <leader>2 <Plug>AirlineSelectTab2
