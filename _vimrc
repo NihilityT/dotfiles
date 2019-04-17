@@ -111,8 +111,6 @@ elseif has('win64')
 	set pythondll=$VIM\vimfiles\python27_x64.dll
 endif
 
-let g:power_font_available = filereadable('C:/Windows/Fonts/DejaVu Sans Mono for Powerline.ttf')
-
 " basic {{{
 set nocompatible
 filetype plugin indent on
@@ -250,15 +248,13 @@ if has('gui_running')
 	source $VIMRUNTIME/delmenu.vim
 	source $VIMRUNTIME/menu.vim
 	language messages zh_CN.utf-8
-	if g:power_font_available
-		if s:system.isWindows
-			" please install the font in 'Dotfiles\font'
-			set guifont=DejaVu_Sans_Mono_for_Powerline:h11:cANSI:qDRAFT
-		elseif s:system.isOSX
-			set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11
-		else
-			set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
-		endif
+	if s:system.isWindows
+		" please install the font in 'Dotfiles\font'
+		set guifont=DejaVu_Sans_Mono_for_Powerline:h11:cANSI:qDRAFT
+	elseif s:system.isOSX
+		set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11
+	else
+		set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
 	endif
 else
 	set t_Co=256
@@ -312,7 +308,7 @@ set completeopt=menuone,menu
 
 " airline {{{
 let g:airline#extensions#tabline#enabled=1
-let g:airline_powerline_fonts = g:power_font_available
+let g:airline_powerline_fonts = getfontname() =~ 'powerline'
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 nmap <leader>1 <Plug>AirlineSelectTab1
 nmap <leader>2 <Plug>AirlineSelectTab2
