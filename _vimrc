@@ -148,9 +148,10 @@ set laststatus=2
 set display=lastline
 set hidden
 
-set nofoldenable
+set foldenable
 set foldmethod=syntax
 set foldcolumn=2
+set foldlevelstart=99
 set magic
 set showmatch
 set nobomb
