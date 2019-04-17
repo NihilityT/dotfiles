@@ -78,6 +78,8 @@ Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'iamcco/markdown-preview.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
 
 " textobj
 Plug 'kana/vim-textobj-user'
@@ -450,6 +452,9 @@ augroup asyncrun_airline
 augroup END
 " asyncrun }}}
 
+" auto-pairs {{{
+let g:AutoPairsFlyMode = 1
+" auto-pairs }}}
 
 " ale {{{
 let g:ale_linters_explicit = 1
