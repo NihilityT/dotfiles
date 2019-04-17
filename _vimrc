@@ -100,6 +100,7 @@ Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'w0rp/ale'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 Plug 'yianwillis/vimcdoc'
 
@@ -163,6 +164,7 @@ set textwidth=0
 set wildmenu
 set ruler
 set number
+set relativenumber
 
 "set cursorcolumn
 set guicursor=a:block-blinkon0
