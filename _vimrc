@@ -480,6 +480,7 @@ let g:ale_linters = {
 \   'cpp': ['gcc'],
 \   'c': ['gcc'],
 \   'python': ['pylint'],
+\   'javascript': ['eslint'],
 \}
 " ale }}}
 
