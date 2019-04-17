@@ -7,6 +7,14 @@ let $vimrc = expand('$VIM/_vimrc')
 let $bundle = expand('$VIM/bundle')
 let $plug_dir = expand('$bundle/vim-plug')
 
+" download vimrc {{{
+function! DownloadVimrc()
+	silent exec '!curl -fLo ' . $vimrc .
+	\' https://raw.githubusercontent.com/NihilityT/dotfiles/master/_vimrc'
+	"silent exec '!ln -s ' . $plug_dir . '/plug.vim ' . $VIM . '/vimriles/autoload'
+endfunction
+" download vimrc }}}
+
 " Plug {{{
 if empty(glob('$plug_dir/plug.vim'))
 	"silent exec '!curl -fLo ' . $plug_dir . '/plug.vim --create-dirs
