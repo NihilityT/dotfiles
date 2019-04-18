@@ -2,7 +2,7 @@
 	path = ~/.gitconfig.local
 
 [alias]
-	lg      = log --color --graph --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%C(yellow)%d%Creset'
+	lg      = log --color --graph --pretty=format:'%C(bold cyan)%h%Creset - %C(bold blue)(%cr)%Creset %s %C(dim white)- %an%Creset%C(auto)%d%Creset'
 
 	c       = checkout
 	co      = checkout
