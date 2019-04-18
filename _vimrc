@@ -264,11 +264,11 @@ if has('gui_running')
 	language messages zh_CN.utf-8
 	if s:system.isWindows
 		" please install the font in 'Dotfiles\font'
-		set guifont=DejaVu_Sans_Mono_for_Powerline:h11:cANSI:qDRAFT
+		set guifont=DejaVu_Sans_Mono_for_Powerline:h11:cANSI:qDRAFT,Monaco:h12,Consolas:h12
 	elseif s:system.isOSX
-		set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11
+		set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h11,Monaco:h12,Consolas:h12
 	else
-		set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11
+		set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11,Monaco\ 12,Consolas\ 12
 	endif
 else
 	set t_Co=256
