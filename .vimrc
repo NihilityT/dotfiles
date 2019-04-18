@@ -114,12 +114,6 @@ call plug#end()
 silent! delcommand PlugUpgrade
 " Plug }}}
 
-if has('win32')
-	set pythondll=$VIM\vimfiles\python27_x86.dll
-elseif has('win64')
-	set pythondll=$VIM\vimfiles\python27_x64.dll
-endif
-
 " basic {{{
 set nocompatible
 filetype plugin indent on
@@ -535,7 +529,7 @@ endfunction
 
 function! RemoveTailSpace()
 	let l:view = winsaveview()
-	%s/\s\+$//ge
+	%s/\s\+$//e
 	call winrestview(l:view)
 endfunction
 
