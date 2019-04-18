@@ -98,7 +98,9 @@ Plug 'Valloric/YouCompleteMe' ", {'do': 'install.py --clang-completer'}
 Plug 'easymotion/vim-easymotion'
 "Plug 'vim-syntastic/syntastic'
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
-Plug 'ludovicchabant/vim-gutentags'
+if executable('ctags') == 1
+	Plug 'ludovicchabant/vim-gutentags'
+endif
 Plug 'skywind3000/asyncrun.vim'
 Plug 'w0rp/ale'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
