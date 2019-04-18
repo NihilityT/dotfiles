@@ -148,8 +148,10 @@ set listchars=tab:┆\ ,trail:·,nbsp:%
 set showcmd
 set showmode
 
-set lines=40
-set columns=100
+if has('gui_running')
+	set lines=40
+	set columns=100
+endif
 set colorcolumn=81
 
 set backspace=indent,eol,start
