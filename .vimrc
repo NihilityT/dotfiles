@@ -216,23 +216,6 @@ set tags+=$VIM/vimfiles/tags/tags
 " build tags of your own project with Ctrl-F12
 nnoremap <C-F12> :!ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
-augroup vimrc
-	au!
-	autocmd BufWritePost $vimrc source $vimrc
-	autocmd BufWinEnter *vimrc,*.vim,$vimrc setl foldmethod=marker
-augroup END
-
-augroup HTML
-	au!
-	au BufEnter,FileType *.js,*.html,*.css,JavaScript,HTML,CSS
-	\ let &l:ts=4 | let &l:sw=4 | let &l:sts=4
-augroup END
-
-augroup JavaScript
-	au!
-	autocmd BufEnter,FileType *.js,JavaScript let &l:cino = ':0,l1,(0,j1,J1'
-augroup END
-
 try
 	let g:airline_theme = 'ayu_mirage'
 	if exists(':AirlineTheme')
@@ -272,6 +255,24 @@ if has('gui_running')
 else
 	set t_Co=256
 endif
+
+augroup vimrc
+	au!
+	au BufWritePost $vimrc source $vimrc
+	au BufEnter *vimrc,*.vim,$vimrc setl foldmethod=marker
+	au BufEnter,FileType *.vim,vim let &l:ts = 4 | let &l:sw = 4 | let &l:sts = 4
+augroup END
+
+augroup HTML
+	au!
+	au BufEnter,FileType *.js,*.html,*.css,JavaScript,HTML,CSS
+	\ let &l:ts = 4 | let &l:sw = 4 | let &l:sts = 4
+augroup END
+
+augroup JavaScript
+	au!
+	autocmd BufEnter,FileType *.js,JavaScript let &l:cino = ':0,l1,(0,Ws,j1,J1'
+augroup END
 " basic }}}
 
 " ycm {{{
@@ -307,18 +308,19 @@ let g:polyglot_disabled = ['javascript']
 " vim-polyglot }}}
 
 " vim-javascript {{{
-let g:javascript_conceal_function             = "ƒ"
-let g:javascript_conceal_null                 = "ø"
-let g:javascript_conceal_this                 = "@"
-let g:javascript_conceal_return               = "⇚"
-let g:javascript_conceal_undefined            = "¿"
-let g:javascript_conceal_NaN                  = "ℕ"
-let g:javascript_conceal_prototype            = "¶"
-let g:javascript_conceal_static               = "•"
-let g:javascript_conceal_super                = "Ω"
-let g:javascript_conceal_arrow_function       = "⇒"
-let g:javascript_conceal_noarg_arrow_function = "🞅"
+let g:javascript_conceal_function                  = "ƒ"
+let g:javascript_conceal_null                      = "ø"
+let g:javascript_conceal_this                      = "@"
+let g:javascript_conceal_return                    = "⇚"
+let g:javascript_conceal_undefined                 = "¿"
+let g:javascript_conceal_NaN                       = "ℕ"
+let g:javascript_conceal_prototype                 = "¶"
+let g:javascript_conceal_static                    = "•"
+let g:javascript_conceal_super                     = "Ω"
+let g:javascript_conceal_arrow_function            = "⇒"
+let g:javascript_conceal_noarg_arrow_function      = "🞅"
 let g:javascript_conceal_underscore_arrow_function = "🞅"
+
 set conceallevel=1
 map <leader>l :exec &conceallevel ? "set conceallevel=0" : "set conceallevel=1"<CR>
 
@@ -332,14 +334,14 @@ augroup END
 " vim-javascript }}}
 
 " OmniCppComplete {{{
-let OmniCpp_NamespaceSearch = 1
-let OmniCpp_GlobalScopeSearch = 1
-let OmniCpp_ShowAccess = 1
+let OmniCpp_NamespaceSearch     = 1
+let OmniCpp_GlobalScopeSearch   = 1
+let OmniCpp_ShowAccess          = 1
 let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
-let OmniCpp_MayCompleteDot = 1 " autocomplete after .
-let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
-let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
-let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
+let OmniCpp_MayCompleteDot      = 1 " autocomplete after .
+let OmniCpp_MayCompleteArrow    = 1 " autocomplete after ->
+let OmniCpp_MayCompleteScope    = 1 " autocomplete after ::
+let OmniCpp_DefaultNamespaces   = ["std", "_GLIBCXX_STD"]
 " automatically open and close the popup menu / preview window
 augroup OminiCpp
 	au! CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
@@ -517,26 +519,26 @@ let g:AutoPairsFlyMode = 1
 " auto-pairs }}}
 
 " ale {{{
-let g:ale_linters_explicit = 1
-let g:ale_echo_delay = 20
-let g:ale_lint_delay = 500
-let g:ale_completion_delay = 500
-let g:ale_echo_msg_format = '[%linter%] %code: %%s'
-let g:ale_lint_on_text_changed = 'normal'
-let g:ale_lint_on_insert_leave = 1
+let g:ale_linters_explicit           = 1
+let g:ale_echo_delay                 = 20
+let g:ale_lint_delay                 = 500
+let g:ale_completion_delay           = 500
+let g:ale_echo_msg_format            = '[%linter%] %code: %%s'
+let g:ale_lint_on_text_changed       = 'normal'
+let g:ale_lint_on_insert_leave       = 1
 let g:airline#extensions#ale#enabled = 1
 
-let g:ale_sign_column_always = 1
-let g:ale_sign_error = '●'
-let g:ale_sign_warning = g:ale_sign_error
+let g:ale_sign_column_always         = 1
+let g:ale_sign_error                 = '●'
+let g:ale_sign_warning               = g:ale_sign_error
 "let g:ale_sign_error = 'X'
 "let g:ale_sign_warning = '-'
 
-let g:ale_c_gcc_options = '-Wall -O2 -std=c99'
-let g:ale_cpp_gcc_options = '-Wall -O2 -std=c++11'
-let g:ale_c_cppcheck_options = ''
-let g:ale_cpp_cppcheck_options = ''
-let g:ale_linters = {
+let g:ale_c_gcc_options              = '-Wall -O2 -std=c99'
+let g:ale_cpp_gcc_options            = '-Wall -O2 -std=c++11'
+let g:ale_c_cppcheck_options         = ''
+let g:ale_cpp_cppcheck_options       = ''
+let g:ale_linters                    = {
 \   'cpp': ['gcc'],
 \   'c': ['gcc'],
 \   'python': ['pylint'],
