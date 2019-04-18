@@ -122,6 +122,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'pangloss/vim-javascript'
 Plug 'vim-scripts/linuxsty.vim'
 
+Plug 'airblade/vim-gitgutter'
+
 Plug 'yianwillis/vimcdoc'
 
 call plug#end()
@@ -133,6 +135,8 @@ silent! delcommand PlugUpgrade
 set nocompatible
 filetype plugin indent on
 syntax on
+
+set updatetime=100
 
 set encoding=utf-8
 silent! set fenc=utf-8
