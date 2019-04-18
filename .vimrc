@@ -8,6 +8,8 @@ let $vimrc = expand('$HOME/.vimrc')
 let $bundle = expand('$vim/bundle')
 let $plug_dir = expand('$bundle/vim-plug')
 
+set runtimepath^=$vim
+
 " download vimrc {{{
 function! DownloadVimrc()
 	silent exec '!curl -fLo ' . $vimrc .
@@ -194,7 +196,7 @@ set undodir^=./.vim/undo,D:/.vim/undo,$vim/undo
 set swapfile
 set directory^=./.vim/swaps,D:/.vim/swaps,$vim/swaps
 
-let g:vim_indent_cont = 0
+let g:vim_indent_cont = &sw
 
 let mapleader=' '
 nnoremap <silent> <Leader>vs :source $vimrc<CR>
