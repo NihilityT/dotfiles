@@ -264,7 +264,7 @@ augroup END
 
 augroup HTML
 	au!
-	au BufEnter,FileType *.js,*.html,*.css,JavaScript,HTML,CSS
+	au BufEnter,FileType *.js,*.ts,*.html,*.css,JavaScript,TypeScript,HTML,CSS
 		\ let &l:ts = 4 | let &l:sw = 4 | let &l:sts = 4
 augroup END
 
