@@ -205,7 +205,7 @@ nnoremap <silent> <Leader>= :call Format()<CR>
 noremap <silent> <Leader>ga ciw<C-R>= nr2char(<C-R>") ?
 \                                     nr2char(<C-R>") :
 \                                     nr2char(<C-R>")<CR><Esc>
-nnoremap <Leader>o "oyy:<C-r>o<BS><CR>
+nnoremap <Leader>o "oyy:<C-r>o
 
 set tags+=$VIM/vimfiles/tags/cpp
 set tags+=$VIM/vimfiles/tags/tags
