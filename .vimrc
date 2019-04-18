@@ -3,8 +3,9 @@ let s:system['isWindows'] = has('win16') || has('win32') || has('win64')
 let s:system['isLinux'] = has('unix') && !has('macunix') && !has('win32unix')
 let s:system['isOSX'] = has('macunix')
 
-let $vimrc = expand('$VIM/_vimrc')
-let $bundle = expand('$VIM/bundle')
+let $vim = expand('$HOME/.vim')
+let $vimrc = expand('$HOME/.vimrc')
+let $bundle = expand('$vim/bundle')
 let $plug_dir = expand('$bundle/vim-plug')
 
 " download vimrc {{{
@@ -189,12 +190,11 @@ set splitright
 set autoread
 
 set backup
-set backupext=.vimbackup
-set backupdir^=./.vim,D:/.vim,~/.vim
+set backupdir^=./.vim/backups,D:/.vim/backups,$vim/backups
 set undofile
-set undodir^=./.vim,D:/.vim,~/.vim
+set undodir^=./.vim/undo,D:/.vim/undo,$vim/undo
 set swapfile
-set directory^=./.vim,D:/.vim,~/.vim
+set directory^=./.vim/swaps,D:/.vim/swaps,$vim/swaps
 
 let g:vim_indent_cont = 0
 
