@@ -92,7 +92,7 @@ Plug 'sgur/vim-textobj-parameter'
 " complete
 Plug 'vim-scripts/omnicppcomplete'
 Plug 'Shougo/echodoc.vim'
-"Plug 'Valloric/YouCompleteMe', {'do': 'install.py --clang-completer'}
+Plug 'Valloric/YouCompleteMe' ", {'do': 'install.py --clang-completer'}
 
 " other
 Plug 'easymotion/vim-easymotion'
