@@ -15,7 +15,10 @@
 	stat    = status --short --branch --untracked-files=normal
 	stata   = status --short --branch --untracked-files=normal --ignored=traditional
 	statall = status --short --branch --untracked-files=normal --ignored=traditional
+
+	cm      = commit
 	amend   = commit --amend --no-edit
+
 	pick    = cherry-pick
 	ff      = merge --ff-only
 	b       = branch -vv
