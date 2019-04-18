@@ -8,12 +8,26 @@ let $vimrc = expand('$HOME/.vimrc')
 let $bundle = expand('$vim/bundle')
 let $plug_dir = expand('$bundle/vim-plug')
 
+let mapleader=' '
+nnoremap <silent> <Leader>vs :source   $vimrc<CR>
+nnoremap <silent> <Leader>ve :e        $vimrc<CR>
+noremap  <silent> <Leader>y  "+y
+noremap  <silent> <Leader>p  "+p
+nnoremap <silent> <Leader>Y  :%y       +<CR>
+vnoremap <silent> <Leader>Y  :y        +<CR>
+nnoremap <silent> <Leader>=  :call     Format()<CR>
+nnoremap          <Leader>o  "oyy:<C-r>o
+vnoremap          <Leader>o  "oy:<C-r>o
+noremap  <silent> <Leader>ga ciw<C-R>= nr2char(<C-R>") ?
+	\                                  nr2char(<C-R>") :
+	\                                  nr2char(<C-R>")<CR><Esc>
+
 set runtimepath^=$vim
 
 " download vimrc {{{
 function! DownloadVimrc()
 	silent exec '!curl -fLo ' . $vimrc .
-	\' https://raw.githubusercontent.com/NihilityT/dotfiles/master/_vimrc'
+		\' https://raw.githubusercontent.com/NihilityT/dotfiles/master/_vimrc'
 	"silent exec '!ln -s ' . $plug_dir . '/plug.vim ' . $VIM . '/vimriles/autoload'
 endfunction
 " download vimrc }}}
@@ -118,6 +132,7 @@ call plug#end()
 silent! delcommand PlugUpgrade
 " Plug }}}
 
+
 " basic {{{
 set nocompatible
 filetype plugin indent on
@@ -198,20 +213,6 @@ set directory^=./.vim/swaps,D:/.vim/swaps,$vim/swaps
 
 let g:vim_indent_cont = &sw
 
-let mapleader=' '
-nnoremap <silent> <Leader>vs :source $vimrc<CR>
-nnoremap <silent> <Leader>ve :e $vimrc<CR>
-noremap  <silent> <Leader>y "*y
-noremap  <silent> <Leader>p "*p
-nnoremap <silent> <Leader>Y :%y *<CR>
-vnoremap <silent> <Leader>Y :y *<CR>
-nnoremap <silent> <Leader>= :call Format()<CR>
-noremap <silent> <Leader>ga ciw<C-R>= nr2char(<C-R>") ?
-\                                     nr2char(<C-R>") :
-\                                     nr2char(<C-R>")<CR><Esc>
-nnoremap <Leader>o "oyy:<C-r>o
-vnoremap <Leader>o "oy:<C-r>o
-
 set tags+=$VIM/vimfiles/tags/cpp
 set tags+=$VIM/vimfiles/tags/tags
 
@@ -235,6 +236,7 @@ try
 catch
 endtry
 
+set t_Co=256
 if has('gui_running')
 	set guioptions-=m " Hide menu bar.
 	set guioptions-=T " Hide toolbar
@@ -246,6 +248,7 @@ if has('gui_running')
 	source $VIMRUNTIME/delmenu.vim
 	source $VIMRUNTIME/menu.vim
 	language messages zh_CN.utf-8
+
 	if s:system.isWindows
 		" please install the font in 'Dotfiles\font'
 		set guifont=DejaVu_Sans_Mono_for_Powerline:h11:cANSI:qDRAFT,Monaco:h12,Consolas:h12
@@ -255,7 +258,6 @@ if has('gui_running')
 		set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 11,Monaco\ 12,Consolas\ 12
 	endif
 else
-	set t_Co=256
 endif
 
 augroup vimrc
@@ -268,7 +270,7 @@ augroup END
 augroup HTML
 	au!
 	au BufEnter,FileType *.js,*.html,*.css,JavaScript,HTML,CSS
-	\ let &l:ts = 4 | let &l:sw = 4 | let &l:sts = 4
+		\ let &l:ts = 4 | let &l:sw = 4 | let &l:sts = 4
 augroup END
 
 augroup JavaScript
@@ -358,22 +360,22 @@ let g:airline#extensions#tabline#enabled=1
 augroup PowerlineFonts
 	au!
 	autocmd VimEnter *
-	\ if !get(g:, 'airline_powerline_fonts', 0) && getfontname() =~? 'powerline'
-	\|	let g:airline_powerline_fonts = getfontname() =~? 'powerline'
-	\|	let g:airline_left_sep      = "\ue0b0"
-	\|	let g:airline_left_alt_sep  = "\ue0b1"
-	\|	let g:airline_right_sep     = "\ue0b2"
-	\|	let g:airline_right_alt_sep = "\ue0b3"
-	\|	call extend(g:airline_symbols, {
-	\	  'readonly': "\ue0a2",
-	\	  'whitespace': "\u2632",
-	\	  'linenr': "\u2630 ",
-	\	  'maxlinenr': " \ue0a1",
-	\	  'branch': "\ue0a0",
-	\	  'notexists': "\u0246",
-	\	  'crypt': nr2char(0x1F512),
-	\	})
-	\|endif
+		\ if !get(g:, 'airline_powerline_fonts', 0) && getfontname() =~? 'powerline'
+		\|	let g:airline_powerline_fonts = getfontname() =~? 'powerline'
+		\|	let g:airline_left_sep      = "\ue0b0"
+		\|	let g:airline_left_alt_sep  = "\ue0b1"
+		\|	let g:airline_right_sep     = "\ue0b2"
+		\|	let g:airline_right_alt_sep = "\ue0b3"
+		\|	call extend(g:airline_symbols, {
+		\	  'readonly': "\ue0a2",
+		\	  'whitespace': "\u2632",
+		\	  'linenr': "\u2630 ",
+		\	  'maxlinenr': " \ue0a1",
+		\	  'branch': "\ue0a0",
+		\	  'notexists': "\u0246",
+		\	  'crypt': nr2char(0x1F512),
+		\	})
+		\|endif
 augroup END
 
 let g:airline#extensions#tabline#buffer_idx_mode = 1
@@ -432,30 +434,30 @@ let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
 " rainbow {{{
 let g:rainbow_active = 1
 let g:rainbow_conf = {
-\	'guifgs': ['#5c9e8e', '#b4c76e', '#d6ae4f', '#3d9644', '#89b6ff', '#ffc080', '#dada68', '#249aa2', '#808000', '#955ece', ],
-\	'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
-\	'operators': '_,_',
-\	'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
-\	'separately': {
-\		'*': {},
-\		'tex': {
-\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
-\		},
-\		'lisp': {
-\			'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
-\		},
-\		'vim': {
-\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
-\		},
-\		'html': {
-\			'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)>)@!\z([_:A-Za-z][-._:A-Za-z0-9]*)(\s+[_:A-Za-z][-._:A-Za-z0-9]*(\s*\=\s*("[^"]*"|''[^'']*''))?)*\s*\>/ end=#</\z1># fold'],
-\		},
-\		'css': 0,
-\		'xml': {
-\			'parentheses': ['start=/\v\<\z([_:A-Za-z][-._:A-Za-z0-9]*)(\s+[_:A-Za-z][-._:A-Za-z0-9]*(\s*\=\s*("[^"]*"|''[^'']*''))?)*\s*\>/ end=#</\z1># fold'],
-\		},
-\	}
-\}
+	\	'guifgs': ['#5c9e8e', '#b4c76e', '#d6ae4f', '#3d9644', '#89b6ff', '#ffc080', '#dada68', '#249aa2', '#808000', '#955ece', ],
+	\	'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+	\	'operators': '_,_',
+	\	'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+	\	'separately': {
+	\		'*': {},
+	\		'tex': {
+	\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+	\		},
+	\		'lisp': {
+	\			'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+	\		},
+	\		'vim': {
+	\			'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+	\		},
+	\		'html': {
+	\			'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)>)@!\z([_:A-Za-z][-._:A-Za-z0-9]*)(\s+[_:A-Za-z][-._:A-Za-z0-9]*(\s*\=\s*("[^"]*"|''[^'']*''))?)*\s*\>/ end=#</\z1># fold'],
+	\		},
+	\		'css': 0,
+	\		'xml': {
+	\			'parentheses': ['start=/\v\<\z([_:A-Za-z][-._:A-Za-z0-9]*)(\s+[_:A-Za-z][-._:A-Za-z0-9]*(\s*\=\s*("[^"]*"|''[^'']*''))?)*\s*\>/ end=#</\z1># fold'],
+	\		},
+	\	}
+	\}
 " rainbow }}}
 
 " gutentags {{{
@@ -541,11 +543,11 @@ let g:ale_cpp_gcc_options            = '-Wall -O2 -std=c++11'
 let g:ale_c_cppcheck_options         = ''
 let g:ale_cpp_cppcheck_options       = ''
 let g:ale_linters                    = {
-\   'cpp': ['gcc'],
-\   'c': ['gcc'],
-\   'python': ['pylint'],
-\   'javascript': ['eslint'],
-\}
+	\   'cpp': ['gcc'],
+	\   'c': ['gcc'],
+	\   'python': ['pylint'],
+	\   'javascript': ['eslint'],
+	\}
 " ale }}}
 
 " format {{{
@@ -618,9 +620,9 @@ function! Compile(...)
 		if exists(':AsyncRun')
 			if l:run
 				AsyncRun -program=make -post=
-				\\	if\ g:asyncrun_code==0|
-				\\	\	call\ Run(1)|
-				\\	endif
+					\\	if\ g:asyncrun_code==0|
+					\\	\	call\ Run(1)|
+					\\	endif
 			else
 				AsyncRun -program=make
 			endif
