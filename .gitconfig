@@ -1,0 +1,22 @@
+[include]
+	path = ~/.gitconfig.local
+
+[alias]
+	lg      = log --color --graph --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%C(yellow)%d%Creset'
+
+	c       = checkout
+	co      = checkout
+
+	s       = status --short --branch --untracked-files=no
+	st      = status --short --branch --untracked-files=no
+
+	sa      = status --short --branch --untracked-files=normal
+	sta     = status --short --branch --untracked-files=normal
+	stat    = status --short --branch --untracked-files=normal
+	stata   = status --short --branch --untracked-files=normal --ignored=traditional
+	statall = status --short --branch --untracked-files=normal --ignored=traditional
+	amend   = commit --amend --no-edit
+	pick    = cherry-pick
+	ff      = merge --ff-only
+	b       = branch -vv
+	ba      = branch -avv
