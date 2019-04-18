@@ -75,15 +75,10 @@ Plug 'luochen1990/rainbow'
 " indent
 
 " search
-Plug 'wsdjeg/FlyGrep.vim'
-if has('python') || has('python3')
-	if s:system.isWindows
-		Plug 'Yggdroot/LeaderF' ", { 'do': '.\install.bat' }
-	else
-		Plug 'Yggdroot/LeaderF' ", { 'do': './install.sh' }
-	endif
+if s:system.isWindows
+	Plug 'Yggdroot/LeaderF' , { 'do': '.\install.bat' }
 else
-	Plug 'kien/ctrlp.vim'
+	Plug 'Yggdroot/LeaderF' , { 'do': './install.sh' }
 endif
 
 " edit
