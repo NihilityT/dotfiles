@@ -329,9 +329,12 @@ let g:javascript_conceal_underscore_arrow_function = "🞅"
 set conceallevel=1
 map <leader>l :exec &conceallevel ? "set conceallevel=0" : "set conceallevel=1"<CR>
 
+let g:javascript_indent_W_pat = '[^[:blank:]{[]'
+
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 let g:javascript_plugin_flow  = 1
+
 augroup javascript_folding
 	au!
 	au FileType javascript setlocal foldmethod=syntax
