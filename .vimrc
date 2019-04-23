@@ -282,19 +282,26 @@ endif
 augroup vimrc
 	au!
 	au BufWritePost $vimrc source $vimrc
-	au BufEnter *vimrc,*.vim,$vimrc setl foldmethod=marker
-	au BufEnter,FileType *.vim,vim let &l:ts = 4 | let &l:sw = 4 | let &l:sts = 4
+	au BufRead,BufNewFile
+		\ *vimrc,*.vim,$vimrc
+		\ setf vim | setl foldmethod=marker
+	au FileType
+		\ vim
+		\ let &l:ts = 4 | let &l:sw = 4 | let &l:sts = 4
 augroup END
 
 augroup HTML
 	au!
-	au BufEnter,FileType *.js,*.ts,*.html,*.css,JavaScript,TypeScript,HTML,CSS
+	au BufRead,BufNewFile *.wxml setf xml
+	au BufRead,BufNewFile *.wxss setf css
+	au FileType
+		\ javascript,typescript,html,css,xml,wxml
 		\ let &l:ts = 4 | let &l:sw = 4 | let &l:sts = 4
 augroup END
 
 augroup JavaScript
 	au!
-	autocmd BufEnter,FileType *.js,JavaScript let &l:cino = ':0,l1,(0,Ws,j1,J1'
+	autocmd FileType javascript let &l:cino = ':0,l1,(0,Ws,j1,J1'
 augroup END
 " basic }}}
 
