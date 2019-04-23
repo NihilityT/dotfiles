@@ -310,7 +310,7 @@ let g:ycm_filetype_whitelist = {
 " ycm }}}
 
 " vim-polyglot {{{
-let g:polyglot_disabled = ['javascript', 'typescript', 'js', 'jsx']
+let g:polyglot_disabled = ['javascript', 'typescript', 'jsx']
 augroup vim-polyglot
 	au!
 	autocmd BufEnter *.js set ft=javascript
