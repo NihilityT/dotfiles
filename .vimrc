@@ -102,6 +102,7 @@ Plug 'iamcco/markdown-preview.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
+Plug 'alvan/vim-closetag'
 
 " textobj
 Plug 'kana/vim-textobj-user'
@@ -287,6 +288,12 @@ augroup JavaScript
 	autocmd BufEnter,FileType *.js,JavaScript let &l:cino = ':0,l1,(0,Ws,j1,J1'
 augroup END
 " basic }}}
+
+
+" vim-closetag {{{
+let g:closetag_filetypes = 'html,xhtml,phtml'
+let g:closetag_xhtml_filetypes = 'xhtml,jsx,xml'
+" vim-closetag }}}
 
 " ycm {{{
 let g:ycm_add_preview_to_completeopt = 0
