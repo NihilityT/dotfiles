@@ -116,6 +116,14 @@ Plug 'sgur/vim-textobj-parameter'
 Plug 'Shougo/echodoc.vim'
 Plug 'Valloric/YouCompleteMe' ", {'do': 'install.py --clang-completer'}
 
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
 " other
 Plug 'easymotion/vim-easymotion'
 "Plug 'vim-syntastic/syntastic'
@@ -288,6 +296,10 @@ augroup JavaScript
 	autocmd BufEnter,FileType *.js,JavaScript let &l:cino = ':0,l1,(0,Ws,j1,J1'
 augroup END
 " basic }}}
+
+" deoplete {{{
+let g:deoplete#enable_at_startup = 1
+" deoplete }}}
 
 
 " vim-closetag {{{
