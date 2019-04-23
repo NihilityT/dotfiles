@@ -21,5 +21,10 @@
 
 	pick    = cherry-pick
 	ff      = merge --ff-only
+	pff     = pull --ff-only
 	b       = branch -vv
 	ba      = branch -avv
+
+	abort    = rebase --abort
+	continue = rebase --continue
+	skip     = rebase --skip
