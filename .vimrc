@@ -549,6 +549,9 @@ let g:ale_sign_warning               = g:ale_sign_error
 "let g:ale_sign_error = 'X'
 "let g:ale_sign_warning = '-'
 
+exec 'hi ALEWarning cterm=underline gui=underline'.
+	\ substitute(execute('hi SpellCap'), '^.* xxx', ' ', 'g')
+
 let g:ale_c_gcc_options              = '-Wall -O2 -std=c99'
 let g:ale_cpp_gcc_options            = '-Wall -O2 -std=c++11'
 let g:ale_c_cppcheck_options         = ''
