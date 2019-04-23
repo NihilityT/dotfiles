@@ -21,7 +21,14 @@ vnoremap          <Leader>o  "oy:<C-r>o
 noremap  <silent> <Leader>ga ciw<C-R>= nr2char(<C-R>") ?
 	\                                  nr2char(<C-R>") :
 	\                                  nr2char(<C-R>")<CR><Esc>
+
 cnoremap w!! w !sudo tee > /dev/null %
+
+cnoremap Bd bn \| bd #
+nnoremap <Leader>< <C-W><
+nnoremap <Leader>> <C-W>>
+nnoremap <Leader>- <C-W>-
+nnoremap <Leader>+ <C-W>+
 
 set runtimepath^=$vim
 
