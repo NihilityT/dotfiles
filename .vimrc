@@ -102,7 +102,7 @@ Plug 'kana/vim-textobj-function', {'for':['c', 'cpp', 'vim', 'java']}
 Plug 'sgur/vim-textobj-parameter'
 
 " complete
-Plug 'vim-scripts/omnicppcomplete'
+" Plug 'vim-scripts/omnicppcomplete'
 Plug 'Shougo/echodoc.vim'
 Plug 'Valloric/YouCompleteMe' ", {'do': 'install.py --clang-completer'}
 
@@ -345,21 +345,20 @@ augroup javascript_folding
 augroup END
 " vim-javascript }}}
 
-" OmniCppComplete {{{
-let OmniCpp_NamespaceSearch     = 1
-let OmniCpp_GlobalScopeSearch   = 1
-let OmniCpp_ShowAccess          = 1
-let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
-let OmniCpp_MayCompleteDot      = 1 " autocomplete after .
-let OmniCpp_MayCompleteArrow    = 1 " autocomplete after ->
-let OmniCpp_MayCompleteScope    = 1 " autocomplete after ::
-let OmniCpp_DefaultNamespaces   = ["std", "_GLIBCXX_STD"]
-" automatically open and close the popup menu / preview window
-augroup OminiCpp
-	au! CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-augroup END
-set completeopt=menuone,menu
-" OmniCppComplete }}}
+" " OmniCppComplete {{{
+" let OmniCpp_NamespaceSearch     = 1
+" let OmniCpp_GlobalScopeSearch   = 1
+" let OmniCpp_ShowAccess          = 1
+" let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
+" let OmniCpp_MayCompleteDot      = 1 " autocomplete after .
+" let OmniCpp_MayCompleteArrow    = 1 " autocomplete after ->
+" let OmniCpp_MayCompleteScope    = 1 " autocomplete after ::
+" let OmniCpp_DefaultNamespaces   = ["std", "_GLIBCXX_STD"]
+" " automatically open and close the popup menu / preview window
+" augroup OminiCpp
+	" au! CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+" augroup END
+" " OmniCppComplete }}}
 
 
 " airline {{{
