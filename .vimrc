@@ -123,6 +123,7 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+Plug 'carlitux/deoplete-ternjs' " , { 'do': 'npm install -g tern' }
 
 " other
 Plug 'easymotion/vim-easymotion'
