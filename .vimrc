@@ -317,6 +317,10 @@ let g:ycm_filetype_whitelist = {
 	\}
 " ycm }}}
 
+" NERD Tree {{{
+let g:NERDTreeWinPos = 'right'
+" NERD Tree }}}
+
 " vim-polyglot {{{
 let g:polyglot_disabled = ['javascript', 'typescript', 'jsx']
 augroup vim-polyglot
