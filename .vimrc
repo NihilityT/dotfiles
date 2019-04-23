@@ -180,10 +180,15 @@ set listchars=tab:┆\ ,trail:·,nbsp:%
 set showcmd
 set showmode
 
-if has('gui_running')
-	set lines=40
-	set columns=100
-endif
+augroup initVimSize
+	au!
+	au VimEnter *
+		\ if has('gui_running')
+		\|	set lines=40
+		\|	set columns=100
+		\|endif
+augroup END
+
 set colorcolumn=81
 
 set backspace=indent,eol,start
@@ -192,7 +197,7 @@ set display=lastline
 set hidden
 
 set foldenable
-set foldmethod=syntax
+" set foldmethod=syntax
 set foldcolumn=2
 set foldlevelstart=99
 set magic
