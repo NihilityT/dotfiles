@@ -298,6 +298,8 @@ let g:ycm_complete_in_strings=1
 let g:ycm_key_invoke_completion = '<c-z>'
 set completeopt=menu,menuone,noselect
 let g:ycm_global_ycm_extra_conf = expand('$HOME/.ycm_extra_conf.py')
+let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
 
 noremap <c-z> <NOP>
 
