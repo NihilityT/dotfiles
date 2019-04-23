@@ -422,12 +422,11 @@ nnoremap <Leader>s/ :FlyGrep<cr>
 " FlyGrep }}}
 
 " LeaderF {{{
-let g:Lf_ShortcutF = '<c-p>'
-let g:Lf_ShortcutB = '<m-n>'
-nnoremap <c-n> :LeaderfMru<cr>
-nnoremap <m-p> :LeaderfFunction!<cr>
-nnoremap <m-n> :LeaderfBuffer<cr>
-nnoremap <m-m> :LeaderfTag<cr>
+let g:Lf_ShortcutF = '<leader>ff'
+let g:Lf_ShortcutB = '<leader>fb'
+nnoremap <Leader>fm :LeaderfMru<cr>
+nnoremap <Leader>fd :LeaderfFunction!<cr>
+nnoremap <Leader>ft :LeaderfTag<cr>
 let g:Lf_StlSeparator = { 'left': '', 'right': '', 'font': '' }
 
 let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git', '.vim']
