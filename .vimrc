@@ -493,6 +493,7 @@ let g:airline#extensions#gutentags#enabled = 1
 
 " echodoc {{{
 set noshowmode
+set cmdheight=2
 let g:echodoc_enable_at_startup = 1
 " echodoc }}}
 
