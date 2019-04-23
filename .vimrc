@@ -303,7 +303,7 @@ noremap <c-z> <NOP>
 
 let g:ycm_semantic_triggers =  {
 	\      'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
-	\      'cs,lua,javascript': ['re!\w{2}'],
+	\      'cs,lua,javascript,typescript': ['re!\w{2}'],
 	\}
 
 let g:ycm_filetype_whitelist = {
