@@ -101,6 +101,7 @@ Plug 'iamcco/mathjax-support-for-mkdp'
 Plug 'iamcco/markdown-preview.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdcommenter'
 
 " textobj
 Plug 'kana/vim-textobj-user'
@@ -320,6 +321,10 @@ let g:ycm_filetype_whitelist = {
 " NERD Tree {{{
 let g:NERDTreeWinPos = 'right'
 " NERD Tree }}}
+
+" NERD Commenter {{{
+let g:NERDSpaceDelims = 1
+" NERD Commenter }}}
 
 " vim-polyglot {{{
 let g:polyglot_disabled = ['javascript', 'typescript', 'jsx']
