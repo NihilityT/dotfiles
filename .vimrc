@@ -24,6 +24,7 @@ noremap  <silent> <Leader>ga ciw<C-R>= nr2char(<C-R>") ?
 
 cnoremap w!! w !sudo tee > /dev/null %
 
+nnoremap g[ `[v`]
 cnoremap Bd bn \| bd #
 nnoremap <Leader>< <C-W><
 nnoremap <Leader>> <C-W>>
