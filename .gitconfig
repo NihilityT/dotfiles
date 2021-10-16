@@ -2,7 +2,8 @@
 	path = ~/.gitconfig.local
 
 [alias]
-	lg      = log --color --graph --pretty=format:'%C(bold cyan)%h%Creset - %C(bold blue)(%cr)%Creset %s %C(dim white)- %an%Creset%C(auto)%d%Creset'
+	lg      = log --left-right --color --graph --pretty=format:'%C(bold cyan)%h%Creset - %C(bold blue)(%ci)%Creset %s %C(dim white)- %an%Creset%C(auto)%d%Creset'
+	lgs      = lg --name-status
 
 	c       = checkout
 	co      = checkout
@@ -19,12 +20,37 @@
 	cm      = commit
 	amend   = commit --amend --no-edit
 
+	pu     = push
+	pr     = pull --rebase --autostash
+
 	pick    = cherry-pick
 	ff      = merge --ff-only
 	pff     = pull --ff-only
 	b       = branch -vv
 	ba      = branch -avv
 
+	ri      = rebase -i --autostash
 	abort    = rebase --abort
 	continue = rebase --continue
 	skip     = rebase --skip
+
+	cp        = cherry-pick
+	cabort    = cherry-pick --abort
+	ccontinue = cherry-pick --continue
+	cskip     = cherry-pick --skip
+
+	aabort    = apply --abort
+	acontinue = apply --continue
+	askip     = apply --skip
+
+	dd     = diff
+	dc     = diff --cached
+
+	reorder = "!GIT_SEQUENCE_EDITOR=\"sed -i -n 'h;1n;2p;g;p'\" git rebase -i HEAD~2"
+
+[gui]
+	encoding = utf-8
+[i18n]
+	logoutputencoding = utf-8
+[i18n "commit"]
+	encoding = utf-8
